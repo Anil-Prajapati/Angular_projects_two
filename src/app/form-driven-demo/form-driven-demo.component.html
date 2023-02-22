@@ -1,0 +1,52 @@
+<h3 class="template">THIS IS THE FORM DRIVEN VALIDIATION OF THE ANGULAR</h3>
+
+<form [formGroup]="registration" (submit)="submittedRegistrationForm(registration)" class="p-2 border col-sm-2  offset-3">
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    FirstName
+                    <input type="text" formControlName="firstName">
+                    <span class="text-primary" *ngIf="registration.controls.firstName.hasError('required') && registration.controls.firstName.dirty">First Name is REQUIRED</span>
+                    <span class="text-primary" *ngIf="registration.controls.firstName.hasError('minlength') && registration.controls.firstName.dirty">First Name is Min Length is Five</span>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    LastName
+                    <input type="text" formControlName="lastName">
+                    <span class="text-danger" *ngIf="registration.controls.lastName.hasError('required') && registration.controls.lastName.dirty">Last Name Is REQUIRED</span>
+                    <span class="text-danger" *ngIf="registration.controls.lastName.hasError('minlength') && registration.controls.lastName.dirty">Last Name Must Be Five Length</span>
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    Email Id
+                    <input type="text" formControlName="email">
+                </p>
+            </div>
+            <div class="row">
+                <fieldset formGroupName="Address">
+                    <p>
+                        City
+                        <input type="text" formControlName="city">
+                    </p>
+                    <div class="col-sm">
+                        <p>
+                            State
+                            <select formControlName="state">
+                                <option>Uttar Pradesh (UP)</option>
+                                <option>Bihar</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                                <option>Hyderabd</option>
+                                <option>banglor</option>
+                            </select>
+                        </p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</form>
+<h3>{{registration.value | json}}</h3>

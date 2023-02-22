@@ -1,0 +1,53 @@
+<h3 class="template">THIS IS THE TEMPLATE DRIVEN FORM IN ANGULAR</h3>
+<form #myForm="ngForm" (submit)="submittedMyForm(myForm.value)">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <label>First Name *</label>
+                <input name="firstName" [(ngModel)]="user.firstName" #fname="ngModel" ngModel required minlength="5" placeholder="Enter the Name"><br>
+                <span class="text-danger" *ngIf="fname.hasError('required') && fname.dirty">FIRST NAME IS REQUIRED</span>
+                <span class="text-primary" *ngIf="fname.hasError('minlength') && fname.dirty">MIN LENGTH IS FIVE</span>
+            </div>
+            <div class="col-sm">
+                <label>Last Name *</label>
+                <input name="lastName" [(ngModel)]="user.lastName" #lname="ngModel" ngModel required minlength="5">
+                <span class="text-danger" *ngIf="lname.hasError('required') && lname.dirty">LAST NAME IS REQUIRED</span>
+                <span class="text-primary" *ngIf="lname.hasError('minlength') && lname.dirty">MIN LENGTH IS FIVE</span>
+            </div>
+            <div class="col-sm">
+                <label>PhoneNumber</label>
+                <input name="Email" [(ngModel)]="user.email" #email="ngModel" ngModel required minlength="15">
+                <span class="text-danger" *ngIf="email.hasError('required') && lname.dirty">Email IS REQUIRED</span>
+                <span class="text-primary" *ngIf="email.hasError('minlength') && lname.dirty">Min length 15 Requeired</span>
+            </div>
+            <div class="col-sm">
+                <label>PhoneNumber</label>
+                <input name="PhoneNumber" [(ngModel)]="user.phoneNumber" #pnumber="ngModel" ngModel required minlength="10">
+                <span class="text-danger" *ngIf="pnumber.hasError('required') && lname.dirty">PhoneNumber is REQUIRED</span>
+                <span class="text-primary" *ngIf="pnumber.hasError('minlength') && lname.dirty">MIN LENGTH IS 10</span>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <label>Address</label>
+            <hr/>
+            <div class="col-sm">
+                <label>Street</label>
+                <input name="street" #street="ngModel" ngModel required><br>
+                <span class="text-danger" *ngIf="street.hasError('required') && street.dirty">Street Is Requeired</span>
+            </div>
+            <div class="col-sm">
+                <label>City</label>
+                <input name="city" #city="ngModel" ngModel required><br>
+                <span class="text-danger" *ngIf="city.hasError('required')  && street.dirty">City Is Requeired</span>
+            </div>
+            <div class="col-sm">
+                <label>State</label>
+                <input name="state" #state="ngModel" ngModel required><br>
+                <span class="text-danger" *ngIf="state.hasError('required')  && street.dirty">State Is Requeired</span>
+            </div>
+        </div>
+    </div><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit">submit</button>
+</form>
+<br><br><br><br><br><br><br><br><br><br> {{myForm.value | json}}

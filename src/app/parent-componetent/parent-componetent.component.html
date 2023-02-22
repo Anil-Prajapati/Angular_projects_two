@@ -1,0 +1,18 @@
+<p>parent-componetent works!</p>
+
+<div class="conatiner">
+    <div class="row">
+        <p>{{name}}</p>
+        <p><input type="number" [(ngModel)]="a"></p>
+        <p><input type="text" [(ngModel)]="pName"></p>
+        <p>Chiled-Two name of the Parent parent-componetent {{chiled2.parentName}}</p>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-chiled-one [chileda]="name" [chiled]="a" [parentName]="pName" [chiled2]="chiled2"></app-chiled-one>
+        </div>
+        <div class="col">
+            <app-chiled-two [chiledb]="b" [chileda]="a" [chiledTwo]="pName" (addEvent)="reciveSendChild($event)" #chiled2></app-chiled-two>
+        </div>
+    </div>
+</div>

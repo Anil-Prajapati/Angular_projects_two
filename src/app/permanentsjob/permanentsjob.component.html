@@ -1,0 +1,21 @@
+<h2>THIS SI THE PERMANATENTS JOB</h2>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let prod of products">
+            <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="card" hieght="500px">
+                    <img highlight src={{prod.image}} class="card-img-top" style='height:150px' alt="" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{prod.category}}</h5>
+                        <p class="card-text">{{prod.title}}</p>
+                        <p class="card-text">Price: {{prod.price}}</p>
+                        <p class="card-text">Ratings: {{prod.rating.rate}}</p>
+                        <button class="btn btn-primary">BUY NOW </button>
+
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
